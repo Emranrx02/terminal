@@ -48,7 +48,7 @@ export default function Terminal() {
 
   return (
     <div className="w-full min-h-screen h-full bg-black   py-10 text-white">
-      <div className="max-w-[50rem] relative overflow-hidden border-2 rounded-md  border-white py-5 px-3  mx-auto">
+      <div className="max-w-[50rem]  relative overflow-hidden border-2 rounded-md  border-white py-5 px-3  mx-auto">
         <div className="w-full terminal border-b border-white pb-5 text-center">
           <Image
             src={"/traimp.png"}
@@ -62,7 +62,7 @@ export default function Terminal() {
             Dogg6xWSgkF8KbsHkTWD3Et4J9a8VBLZjrASURXGiLe1
           </p>
         </div>
-        <div className="container font-bold text-sm min-h-[65vh] max-h-[65vh] overflow-y-auto py-2 px-2  my-3 border border-white">
+        <div className="container font-bold text-sm  h-[65vh] overflow-y-auto py-2 px-2  my-3 border border-white">
           {prevElement.map(
             (val, index) =>
               index < prevElement.length - 1 && <p key={index}>{val}</p>
