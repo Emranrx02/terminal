@@ -6,7 +6,7 @@ export default function FirstLoad({
   handleTrum: Dispatch<SetStateAction<boolean | null>>;
 }) {
   return (
-    <div className="w-full flex flex-col justify-center items-center h-full bg-black">
+    <div className="w-full min-h-screen flex  flex-col justify-center items-center  h-full bg-black">
       <h2 className="text-4xl font-bold">Choose your pill</h2>
       <div className="flex gap-3 mt-5 font-bold">
         <button

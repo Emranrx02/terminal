@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 
 const resp = {
-  help: "Available commands: help, chart, clear, twitter, telegram",
+  help: "Available commands: help, chart, twitter, telegram",
   chart: "Opening chart...",
   twitter: "Opening Twitter...",
   telegram: "Opening Telegram...",
@@ -30,13 +30,10 @@ export default function Terminal() {
           window.open("https://x.com/home", "_blank");
 
         case "twitter":
-          window.open("https://x.com/home", "_blank");
+          window.open("https://x.com/TrA_Imp", "_blank");
         case "telegram":
-          window.open("https://telegram.com", "_blank");
+          window.open("https://t.me/DonaldTrAimp", "_blank");
           setPrevElement((val) => [...val, `> ${command}`, resp[command]]);
-          break;
-        case "clear":
-          setPrevElement([]);
           break;
         default:
           setPrevElement((val) => [
@@ -50,7 +47,7 @@ export default function Terminal() {
   };
 
   return (
-    <div className="w-full h-full bg-black   py-10 text-white">
+    <div className="w-full min-h-screen h-full bg-black   py-10 text-white">
       <div className="max-w-[50rem] relative overflow-hidden border-2 rounded-md  border-white py-5 px-3  mx-auto">
         <div className="w-full terminal border-b border-white pb-5 text-center">
           <Image
