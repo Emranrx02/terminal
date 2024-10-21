@@ -50,7 +50,7 @@ export default function Terminal() {
   };
 
   return (
-    <div className="w-full h-screen bg-black   py-10 text-white">
+    <div className="w-full h-full bg-black   py-10 text-white">
       <div className="max-w-[50rem] relative overflow-hidden border-2 rounded-md  border-white py-5 px-3  mx-auto">
         <div className="w-full terminal border-b border-white pb-5 text-center">
           <Image
