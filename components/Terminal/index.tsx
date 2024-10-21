@@ -7,7 +7,7 @@ import { useRef, useState } from "react";
 
 const resp = {
   help: "Available commands: help, chart, twitter, telegram",
-  chart: "Opening chart...",
+  chart: "chart coming soon...",
   twitter: "Opening Twitter...",
   telegram: "Opening Telegram...",
 };
@@ -21,14 +21,14 @@ export default function Terminal() {
 
   const handleSubmit = (event: { key: string }) => {
     if (event?.key == "Enter") {
-      const command = inputRef.current?.value.toLocaleLowerCase();
+      const command = inputRef.current?.value.toLocaleLowerCase().trim();
       switch (command) {
         case "help":
           setPrevElement((val) => [...val, `> ${command}`, resp[command]]);
           break;
         case "chart":
-          window.open("https://x.com/home", "_blank");
-
+          setPrevElement((val) => [...val, `> ${command}`, resp[command]]);
+          break;
         case "twitter":
           window.open("https://x.com/TrA_Imp", "_blank");
         case "telegram":
@@ -57,9 +57,9 @@ export default function Terminal() {
             alt="tramp logo"
             className=" w-36 mx-auto"
           />
-          <h2 className="uppercase font-bold text-xl">$Donald Tr(A.i)mp</h2>
+          <h2 className="uppercase font-bold text-xl">$Donald $Tr(A.i)mp</h2>
           <p className="sm:text-base text-sm">
-            Dogg6xWSgkF8KbsHkTWD3Et4J9a8VBLZjrASURXGiLe1
+            000000000000000000000000000000000000000000
           </p>
         </div>
         <div className="container font-bold flex-shrink text-sm     h-full overflow-y-auto py-2 px-2  my-3 border border-white">
