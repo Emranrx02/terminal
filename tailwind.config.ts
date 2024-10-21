@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        cours: ["var(--font-cours)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

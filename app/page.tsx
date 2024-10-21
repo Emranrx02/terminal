@@ -1,101 +1,96 @@
-import Image from "next/image";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+"use client";
+
+import TypingEffect from "@/hooks/typing-hooks";
+import { useRef, useState } from "react";
+
+const resp = {
+  help: "Available commands: help, about, bark, play, tweet, clear, ca, dextools, twitter, telegram",
+  about:
+    "$DOGAI: The AI-powered memecoin that's pawsitively revolutionary! Our mission is to make cryptocurrency fun, accessible, and full of AI-enhanced belly rubs.",
+  bark: `Woof woof! You've unlocked a secret message: "Every dog has its day, but with $DOGAI, every day is an AI-powered dog day!"`,
+  tweet: "Every bark is an investment in my future $DOGAI gains.",
+  ca: "$DOGAI CA: Dogg6xWSgkF8KbsHkTWD3Et4J9a8VBLZjrASURXGiLe1",
+  dextools: "Opening dextools...",
+  twitter: "Opening Twitter...",
+  telegram: "Opening Telegram...",
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const inputRef = useRef<HTMLInputElement | null>();
+  const [inputValue, setInputValue] = useState("");
+  const [prevElement, setPrevElement] = useState<string[]>([
+    `Welcome to $DOGAI - The Matrix of AI Cryptocurrencies! 
+/\___/\ ( o o ) / V \ /( \_/ )\ ^^ ^^ 
+I'm not just a good boy, I'm an AI-powered good boy!`,
+  ]);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleSubmit = (event: { key: string }) => {
+    if (event?.key == "Enter") {
+      const command = inputRef.current?.value.toLocaleLowerCase();
+      switch (command) {
+        case "help":
+        case "about":
+        case "bark":
+        case "ca":
+        case "dextools":
+          window.open(
+            "https://www.dextools.io/app/en/token/dogai?t=1729546688295",
+            "_blank"
+          );
+        case "twitter":
+          window.open("https://x.com/home", "_blank");
+        case "telegram":
+          window.open("https://telegram.com", "_blank");
+          setPrevElement((val) => [...val, `> ${command}`, resp[command]]);
+          break;
+        case "clear":
+          setPrevElement([]);
+          break;
+        default:
+          setPrevElement((val) => [
+            ...val,
+            `> ${command}`,
+            "Command not recognized. Type 'help' for available commands.",
+          ]);
+      }
+      setInputValue("");
+    }
+  };
+
+  return (
+    <div className="w-full h-screen bg-black   py-10 text-[#00FF00]">
+      <div className="max-w-[50rem] border-2 rounded-md  border-[#00FF00] py-5 px-3  mx-auto">
+        <div className="w-full border-b border-[#00FF00] py-5 text-center">
+          <h2 className="uppercase text-xl">$DOGAI Terminal</h2>
+          <p>Dogg6xWSgkF8KbsHkTWD3Et4J9a8VBLZjrASURXGiLe1</p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div className="container font-medium min-h-[70vh] max-h-[70vh] overflow-y-auto py-2 px-2  my-3 border border-[#00FF00]">
+          {prevElement.map(
+            (val, index) =>
+              index < prevElement.length - 1 && <p key={index}>{val}</p>
+          )}
+          {prevElement.length > 0 && (
+            <TypingEffect
+              key={prevElement.length}
+              text={prevElement[prevElement.length - 1]}
+              speed={40}
+            />
+          )}
+        </div>
+        <div className="flex gap-2">
+          <p> {"> "} </p>
+          <input
+            //@ts-expect-error
+            ref={inputRef}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleSubmit}
+            className="w-full  bg-black outline-none"
+            placeholder="Enter command (type 'help' for options)"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </div>
     </div>
   );
 }
