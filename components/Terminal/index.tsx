@@ -62,7 +62,7 @@ export default function Terminal() {
             Dogg6xWSgkF8KbsHkTWD3Et4J9a8VBLZjrASURXGiLe1
           </p>
         </div>
-        <div className="container font-bold text-sm max-h-[40rem]  flex-col flex-grow h-full overflow-y-auto py-2 px-2  my-3 border border-white">
+        <div className="container font-bold text-sm max-h-[75%]  flex-col flex-grow h-full overflow-y-auto py-2 px-2  my-3 border border-white">
           {prevElement.map(
             (val, index) =>
               index < prevElement.length - 1 && <p key={index}>{val}</p>
