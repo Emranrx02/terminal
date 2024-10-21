@@ -65,7 +65,9 @@ I'm not just a good boy, I'm an AI-powered good boy!`,
       <div className="max-w-[50rem] border-2 rounded-md  border-[#00FF00] py-5 px-3  mx-auto">
         <div className="w-full border-b border-[#00FF00] py-5 text-center">
           <h2 className="uppercase text-xl">$DOGAI Terminal</h2>
-          <p>Dogg6xWSgkF8KbsHkTWD3Et4J9a8VBLZjrASURXGiLe1</p>
+          <p className="sm:text-base text-sm">
+            Dogg6xWSgkF8KbsHkTWD3Et4J9a8VBLZjrASURXGiLe1
+          </p>
         </div>
         <div className="container font-medium min-h-[70vh] max-h-[70vh] overflow-y-auto py-2 px-2  my-3 border border-[#00FF00]">
           {prevElement.map(
