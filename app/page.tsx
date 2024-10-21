@@ -33,6 +33,8 @@ I'm not just a good boy, I'm an AI-powered good boy!`,
         case "about":
         case "bark":
         case "ca":
+          setPrevElement((val) => [...val, `> ${command}`, resp[command]]);
+          break;
         case "dextools":
           window.open(
             "https://www.dextools.io/app/en/token/dogai?t=1729546688295",
