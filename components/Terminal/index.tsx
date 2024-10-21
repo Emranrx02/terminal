@@ -16,7 +16,7 @@ export default function Terminal() {
   const inputRef = useRef<HTMLInputElement | null>();
   const [inputValue, setInputValue] = useState("");
   const [prevElement, setPrevElement] = useState<string[]>([
-    `Welcome to $Tr(A.i)mp  - The Matrix of Donald Trump  Cryptocurrencies! /___/ ( o o ) / V /( _/ ) ^^ ^^`,
+    `Welcome to $Tr(A.i)mp  - The Matrix of Donald Trump  Cryptocurrencies! /___/ ( o o )`,
   ]);
 
   const handleSubmit = (event: { key: string }) => {
