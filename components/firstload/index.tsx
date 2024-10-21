@@ -13,7 +13,7 @@ export default function FirstLoad({
           onClick={() => handleTrum(false)}
           className="bg-blue-600 uppercase hover:scale-105 px-9 py-5 rounded-full"
         >
-          Harris
+          Jeet
         </button>
         <button
           onClick={() => handleTrum(true)}
