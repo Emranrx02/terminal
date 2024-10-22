@@ -57,7 +57,7 @@ export default function Terminal() {
             alt="tramp logo"
             className=" w-36 mx-auto"
           />
-          <h2 className="uppercase font-bold text-xl">$Donald $Tr(A.i)mp</h2>
+          <h2 className="uppercase font-bold text-xl">Donald $Tr(A.i)mp</h2>
           <p className="sm:text-base text-sm">
             000000000000000000000000000000000000000000
           </p>
