@@ -59,7 +59,7 @@ export default function Terminal() {
           />
           <h2 className="uppercase font-bold text-xl">Donald $Tr(A.i)mp</h2>
           <p className="sm:text-base text-sm">
-            000000000000000000000000000000000000000000
+            5WbjUUkvCMAQDirYE4US9qrUh7bcxdBo287fxCf7o9Kf
           </p>
         </div>
         <div className="container font-bold flex-shrink text-sm     h-full overflow-y-auto py-2 px-2  my-3 border border-white">
